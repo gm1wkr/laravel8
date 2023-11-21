@@ -1,0 +1,16 @@
+body {
+    background: rgb(228, 226, 201);
+    color: #333;
+    font-family: sans-serif;
+    max-width: 60rem;
+    margin: auto;
+}
+
+p {
+    line-height: 1.6;
+}
+
+article + article {
+    margin-top: 3rem;
+    border-top: 1px solid #888;
+}
