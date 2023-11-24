@@ -9,9 +9,8 @@ class AuthorController extends Controller
 {
     public function author(User $author)
     {
-        return view('posts', [
+        return view('posts.index', [
             'posts' => $author->posts,
-            'categories' => Category::all(),
         ]);
     }
 }

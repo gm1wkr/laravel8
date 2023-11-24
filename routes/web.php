@@ -1,28 +1,17 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PostController;
-use App\Models\Post;
-use App\Models\User;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
-
 Route::get('/post/{post:slug}', [PostController::class, 'show']);
 
-// Route::get('/categories/{category:slug}', [CategoryController::class, 'category'])->name('category');
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
-Route::get('/authors/{author:username}', [AuthorController::class, 'author']);
+Route::get('/login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('/login', [SessionsController::class, 'store'])->middleware('guest');
+
+Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
