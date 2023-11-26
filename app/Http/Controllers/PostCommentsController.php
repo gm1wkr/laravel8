@@ -20,6 +20,6 @@ class PostCommentsController extends Controller
             'body' => request('body'),
         ]);
 
-        return back()->with('success', 'Comment has been added, thanks.');;
+        return back()->with('success', 'Comment has been added, thanks.');
     }
 }

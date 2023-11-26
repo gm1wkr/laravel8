@@ -7,7 +7,9 @@
                 <h2 class="font-bold ml-4">Leave a comment</h2>
             </header>
 
-            <textarea
+            <x-form.textarea name="body" />
+
+            {{-- <textarea
                 name="body"
                 id="body"
                 class="w-full text-sm p-2 border border-gray-100 mb-3"
@@ -18,10 +20,10 @@
 
             @error('body')
                 <span class="text-red-500 text-xs">{{ $message }}</span>
-            @enderror
+            @enderror --}}
 
             <div class="flex justify-end">
-                <x-submit-button>Post</x-submit-button>
+                <x-form.button>Add Comment</x-form.button>
             </div>
         </form>
     </x-panel>
